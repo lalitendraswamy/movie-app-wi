@@ -9,6 +9,7 @@ class Navbar extends Component{
   state={search:''}
 
   searchMovie=(event)=>{
+
     this.setState({search:event.target.value})
   }
 
@@ -28,7 +29,7 @@ class Navbar extends Component{
     
     <div className="d-flex" role="search">
       <input className="form-control me-2" onChange={this.searchMovie} type="search" placeholder="Search" valur={search} aria-label="Search"/>
-      <Link to={`search/${search}`}><button   className="btn btn-outline-success" type="submit">Search</button></Link>
+      <Link  to={`/search/${search}`}><button   className="btn btn-outline-success" type="submit">Search</button></Link>
     </div>
   </div>
 </nav>)

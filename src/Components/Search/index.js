@@ -26,6 +26,8 @@ const Search = () => {
 
   console.log(searchData);
 
+  
+
 
   const updatedData = searchData!==null && (searchData.results.map((eachitem)=>{
     return (
@@ -52,7 +54,7 @@ const Search = () => {
   
 return (
     <div className="home-card d-flex justify-content-center align-items-center">
-      {searchData ? ( // Check if searchData is available
+      {searchData ? ( 
         <div className="col-11 d-flex flex-column justify-content-center align-items-center">
           {searchData.results && searchData.results.length > 0 ? ( 
             <ul className="col-11 d-flex justify-content-between flex-wrap">
@@ -61,7 +63,9 @@ return (
               ))}
             </ul>
           ) : (
+            <div className="col-11 d-flex flex-column justify-content-center align-items-center">
             <p>No results found.</p>
+            </div>
           )}
         </div>
       ) : (
