@@ -1,15 +1,20 @@
+import {Link} from 'react-router-dom'
+import './index.css'
+import StyledListItem from './StyledComponent.js'
+
 const MovieCard=(props)=>{
 
     const {obj}=props
-    console.log(`https://api.themoviedb.org${obj.backdroppath}`);
+    
 
     return(
-        <li className="shadow">
-            <img src={`https://image.tmdb.org/t/p/w500${obj.backdroppath}`} alt='banner' />
-            <h2>{obj.title}</h2>
-            <p>Rating: {obj.voteaverage}</p>
-        </li>
+        <Link  className='movie-link' to={`/single-movie/:${obj.id}`}>
+        <StyledListItem title={obj.title}  className="card-movie">
+            <img className='movie-img' src={`https://image.tmdb.org/t/p/w500${obj.backdroppath}`} alt='banner' />
+            <p>Rating: {obj.voteaverage.toFixed(1)}</p>
+        </StyledListItem>
+        </Link>
     )
 }
 
-export default MovieCard
+export default MovieCard;

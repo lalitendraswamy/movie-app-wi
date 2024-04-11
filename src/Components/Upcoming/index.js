@@ -4,7 +4,7 @@ import MovieCard from "../MovieCard";
 
 class Upcoming extends Component{
 
-    state={moviesList:[]}
+    state={moviesList:[],page:1,last_page:''}
 
     componentDidMount(){
        this.getMovies();
@@ -13,7 +13,7 @@ class Upcoming extends Component{
 
     getMovies=async()=>{
         
-        const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=0e4cbd4813aa6ef290ad76141eaeda85&language=en-US&page=1&language=en-US&page=1`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=0e4cbd4813aa6ef290ad76141eaeda85&language=en-US&page=${this.state.page}`);
         const jsonData = await response.json();
         
         const updatedData = jsonData.results.map((eachitem)=>{
@@ -37,18 +37,41 @@ class Upcoming extends Component{
           )
         })
 
-        this.setState({moviesList:updatedData})
+        this.setState({moviesList:updatedData,page: jsonData.page,
+            last_page: jsonData.total_pages,})
     }
+
+    onNext = () => {
+        this.setState({ page: this.state.page + 1 }, () => {
+          this.getMovies();
+        });
+      };
+    
+      onPrev = () => {
+        const { page } = this.state;
+    
+        if (page >= 2) {
+          this.setState({ page: this.state.page - 1 }, () => {
+            this.getMovies();
+          });
+        }
+      };
 
     render(){
 
-        const {moviesList}=this.state;
+        const {moviesList,page,last_page}=this.state;
 
         return(
-            <div className="home-card d-flex justify-content-center align-items-center">
+            <div className="home-card d-flex flex-column justify-content-center align-items-center">
                 <ul className="col-11 d-flex justify-content-between flex-wrap">
                     {moviesList.map(obj=>(<MovieCard key={obj.id} obj={obj} />))}
                 </ul>
+                <div className="mb-4 pagination">
+                    <p>{page}</p>
+                    <button className="btn btn-success" onClick={this.onPrev}>Prev</button>
+                    <button className="btn btn-primary" onClick={this.onNext} >Next</button>
+                    <p>{last_page}</p>
+                </div>
             </div>
         )
     }

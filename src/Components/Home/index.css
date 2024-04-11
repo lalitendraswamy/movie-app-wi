@@ -7,7 +7,7 @@
     
 
     li{
-        width: 22%;
+        width: 100%;
         margin-top: 10px;
         text-align: center;
         margin-bottom: 20px;
@@ -21,6 +21,8 @@
             width: 100%;
             margin-bottom: 10px;
         }
+
+        
     }
 
     ul{
@@ -30,3 +32,26 @@
     }
 
 }
+
+
+.pagination{
+    width: 20%;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+
+    p{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones*/
+  
+    .pagination{
+        width: 60%;
+        
+    }
+    
+  }
+

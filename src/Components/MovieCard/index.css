@@ -1,0 +1,88 @@
+
+.movie-link{
+    width: 22%;
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones*/
+  
+    .movie-link{
+        width: 98%;
+    }
+    
+  }
+
+.card-movie{
+ 
+
+ margin: auto;
+ 
+ position: relative;
+ transition: transform 4s ease-in;
+ overflow: hidden;
+ border:2px solid #fff;
+
+}
+.movie-img{
+ width:100%;
+ height: 400px;
+ transition: transform 1s ease-in;
+}
+.movie-img:hover{
+ transform: scale(1.3);
+}
+.card-movie:before {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ left:0;
+ 
+ transform:translateY(100%);
+ font-size: 25px;
+ color:#fff;
+display: block;
+ background-color: rgba(188, 143, 143, 0.137);
+ z-index: 1;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+font-family: sans-serif;
+ transition: transform .4s ease-in;
+ border:4px solid white;
+ justify-content: center;
+ box-sizing: border-box;
+}
+
+.card-movie:after {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ left:0;
+ 
+ transform:translateY(100%);
+ font-size: 25px;
+ color:#fff;
+display: block;
+ background-color: rgba(188, 143, 143, 0.137);
+ z-index: 1;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+font-family: sans-serif;
+ transition: transform .4s ease-in;
+ border:4px solid white;
+ justify-content: center;
+ box-sizing: border-box;
+}
+.card-movie:hover::before{
+transform: translateY(0%); 
+
+}
+.card-movie:hover::after{
+ transform: translateY(0%); 
+ 
+}

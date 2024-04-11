@@ -1,5 +1,5 @@
 nav{
-    height: 8vh;
+    min-height: 8vh;
 }
 
 .links{
@@ -16,3 +16,13 @@ nav{
     text-decoration: none;
     opacity: 0.8;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones*/
+  
+    .links{
+        width: 60vw;
+        
+    }
+    
+  }

@@ -1,0 +1,28 @@
+.single-movie-card{
+    background-color: #010B17;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smp-bg{
+    height: 70vh;
+    width: 50%;
+}
+
+.poster{
+    width: 30%;
+    height: 30vh;
+}
+
+.cast-li{
+    width: 16% !important;
+   
+}
+
+.cast-dp{
+    
+    width: 100%;
+    min-height: 80%;
+    border-radius: 4px;
+}
